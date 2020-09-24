@@ -8,12 +8,8 @@ class Rectangle():
         self.end_y = end_y
         self.fill_char = fill_char
 
-
     def __repr__(self):
-
         return f'<start_x="{self.start_x}" start_y="{self.start_y} end_x="{self.end_x} end_y="{self.end_y}" fill_char="{self.fill_char}">'
-
-
 
     def change_fill_char(self, new_fill_char):
         # update fill char
@@ -34,29 +30,31 @@ class Rectangle():
         else:
             ('Invalid, try again')
 
-class API():
+class Canvas():
 
     def __init__(self, length, width):
         self.length = length
         self.width = width
-
+        self.shapes = []
 
     def __repr__(self):
-
         return f'<Length="{self.length}" Width="{self.width}">'
 
     def render_canvas(self):
-        # Print the canvas and any shapes to standard output
-        pass
+        # Print the canvas 
+        # any shapes to standard output
+        
+        
+        
 
     def add_shape(self, shape):
         # shape is a Rectangle
-        pass
+        self.shapes.append(self.shape)
 
     def clear_all_shapes(self):
-        pass 
+        self.shapes = []
  
-api = API()
+api = Canvas(5, 5)
 r = Rectangle(0, 0, 0, 0, "x")
 api.add_shape(r)
 api.render_canvas()
