@@ -40,22 +40,43 @@ class Canvas():
     def __repr__(self):
         return f'<Length="{self.length}" Width="{self.width}">'
 
+    def _print_grid(self, grid):
+        for row in range(self.length):
+            row_str = ""
+            for col in range(self.width):
+                row_str += grid[row][col]
+            print(row_str)
+
+    def _add_shape_to_grid(self, grid, shape):
+        for i in range(shape.start_x, shape.end_x + 1):
+            for j in range(shape.start_x, shape.end_x + 1):
+                grid[i][j] = shape.fill_char
+        return grid
+
     def render_canvas(self):
         # Print the canvas 
         # any shapes to standard output
-        
-        
-        
+        grid = []
+        for row in range(self.length):
+            grid.append([" "] * self.width)
 
+        for shape in self.shapes:
+            grid = self._add_shape_to_grid(grid, shape)
+
+        self._print_grid(grid)
+
+    
+
+        
     def add_shape(self, shape):
         # shape is a Rectangle
-        self.shapes.append(self.shape)
+        self.shapes.append(shape)
 
     def clear_all_shapes(self):
         self.shapes = []
  
 api = Canvas(5, 5)
-r = Rectangle(0, 0, 0, 0, "x")
+r = Rectangle(0, 2, 2, 0, "x")
 api.add_shape(r)
 api.render_canvas()
  
